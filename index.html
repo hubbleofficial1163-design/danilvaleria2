@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>ИЗВЕЩЕНИЕ №21-08/2016 | Логачев Д.А. и Мелюханова В.Н.</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Times+New+Roman:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <style>
+        /* Стили для мобильных устройств */
+        @media (max-width: 768px) {
+            /* Основной контейнер документа - УВЕЛИЧЕННЫЙ МАСШТАБ */
+            .document-a4 {
+                border: 1px solid rgba(0, 0, 0, 0.2);
+                background: #ffffff;
+                position: relative;
+                overflow: hidden;
+                margin: 10px auto;
+                padding: 15px 12px 15px 20px;
+                width: 100%;
+                max-width: 100%;
+                min-height: auto;
+                box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+                transform: scale(1.02);
+                transform-origin: top center;
+            }
+            
+            /* Объекты в верхних углах */
+            .corner-objects {
+                height: 60pt;
+            }
+            
+            .corner-left {
+                position: absolute;
+                top: -10px;
+                left: -12px;
+                max-height: 55pt !important;
+                width: auto;
+                opacity: 0.9;
+                z-index: 1;
+            }
+            
+            .corner-right {
+                position: absolute;
+                top: -6px;
+                right: -8px;
+                max-height: 50pt !important;
+                width: auto;
+                opacity: 0.9;
+                z-index: 1;
+            }
+            
+            /* Печать */
+            .seal-stamp {
+                height: 95pt !important;
+                width: auto;
+                opacity: 0.9;
+                mix-blend-mode: multiply;
+                transform: translateY(0pt) !important;
+                position: relative;
+            }
+            
+            /* Год 2026 г. внизу первой страницы - БОЛЬШЕ ОТСТУП */
+            .year-bottom {
+                position: absolute;
+                bottom: 50px; /* Увеличено с 40px */
+                left: 0;
+                right: 0;
+                text-align: center;
+                font-size: 14pt;
+                font-weight: normal;
+                color: #000000;
+                opacity: 1;
+                z-index: 5;
+            }
+            
+            /* Убираем старый прозрачный год */
+            .year {
+                display: none;
+            }
+            
+            /* ПОСЛЕДСТВИЯ НЕЯВКИ по центру */
+            .consequences-title {
+                text-align: center !important;
+                margin: 18pt auto !important;
+                font-size: 14pt !important;
+            }
+            
+            /* Страницы документа */
+            .a4-page {
+                min-height: auto;
+                padding-bottom: 45px;
+            }
+            
+            /* Линия после первой страницы */
+            .first-page::after {
+                content: '';
+                position: absolute;
+                bottom: 0;
+                left: 0 !important;
+                right: 0 !important;
+                width: 100% !important;
+                height: 2px;
+                background: linear-gradient(90deg, transparent, rgba(0,0,0,0.2), transparent);
+                z-index: 2;
+            }
+            
+            /* Линия перед повесткой */
+            .second-page-title-line {
+                content: '';
+                display: block;
+                width: 100% !important;
+                height: 2px;
+                background: linear-gradient(90deg, transparent, rgba(0,0,0,0.2), transparent);
+                margin: 12pt 0 18pt 0;
+                position: relative;
+                left: -20px;
+                width: calc(100% + 40px) !important;
+            }
+            
+            /* Линия перед распиской */
+            .receipt-section::before {
+                content: '';
+                display: block;
+                width: 100% !important;
+                height: 2px;
+                background: linear-gradient(90deg, transparent, rgba(0,0,0,0.2), transparent);
+                margin: 18pt 0 15pt 0;
+                position: relative;
+                left: -20px;
+                width: calc(100% + 40px) !important;
+            }
+            
+            /* Адаптивные отступы */
+            .first-page {
+                padding-bottom: 60px; /* Увеличено для большего расстояния до года */
+                padding-top: 15px;
+            }
+            
+            .second-page {
+                padding-top: 15px;
+                position: relative;
+            }
+            
+            /* РАЗМЕРЫ ШРИФТА - УВЕЛИЧЕНЫ для лучшей читаемости */
+            body {
+                font-size: 14pt;
+                line-height: 1.45;
+                background: #f5f5f5;
+            }
+            
+            /* ЗАГОЛОВОК "ИЗВЕЩЕНИЕ" - КРУПНЕЕ для заполнения экрана */
+            .document-title h1,
+            .document-title h2 {
+                font-size: 17pt;
+                margin: 20pt 0 15pt 0;
+                font-weight: 700;
+                letter-spacing: 0.8pt;
+            }
+            
+            .paragraph {
+                font-size: 14pt;
+                text-indent: 22px;
+                margin-bottom: 10pt;
+                line-height: 1.45;
+            }
+            
+            /* Первый абзац с увеличенным отступом снизу */
+            .first-paragraph {
+                margin-bottom: 30pt !important; /* Увеличен отступ */
+            }
+            
+            .attachment-title,
+            .schedule-title,
+            .receipt-title {
+                font-size: 14pt !important;
+                margin: 15pt 0 10pt 0 !important;
+            }
+            
+            /* Нумерация для приложения - ТОЛЬКО ДЛЯ ПЕРВОГО ПУНКТА */
+            .attachment-item {
+                font-size: 14pt;
+                text-indent: 22px; /* Стандартный отступ как в параграфе */
+                margin-bottom: 10pt;
+                line-height: 1.45;
+                padding-left: 0;
+                position: relative;
+            }
+            
+            .attachment-item.numbered {
+                padding-left: 0;
+                text-indent: 0; /* Убираем стандартный отступ для первого пункта */
+            }
+            
+            .attachment-item::before {
+                display: none !important; /* Скрываем нумерацию для всех */
+            }
+            
+            .attachment-item.numbered::before {
+                display: block; /* Показываем только для первого пункта */
+                position: absolute;
+                left: 0;
+                font-weight: 700;
+                content: "1.";
+            }
+            
+            /* Ссылка на карту - вся строка как ссылка */
+            .map-link-full {
+                color: #000000;
+                text-decoration: underline;
+                text-decoration-style: dotted;
+                font-weight: 500;
+                cursor: pointer;
+            }
+            
+            .map-link-full:hover {
+                text-decoration-style: solid;
+            }
+            
+            /* Расписание */
+            .schedule {
+                margin: 15pt 0;
+                padding-left: 22px;
+            }
+            
+            .schedule-item {
+                margin-bottom: 8pt;
+                font-size: 13pt;
+            }
+            
+            .schedule-time {
+                width: 50pt;
+                font-size: 13pt;
+                font-weight: bold;
+            }
+            
+            /* Форма */
+            .form-group {
+                margin-bottom: 15pt;
+                width: 100%;
+                max-width: 100%;
+            }
+            
+            .form-label {
+                font-size: 14pt;
+                margin-bottom: 5pt;
+                width: 100%;
+            }
+            
+            .form-input {
+                padding: 10px 12px;
+                font-size: 14pt;
+                border: none !important; /* Убираем черную рамку */
+                background-color: #f8f8f8 !important; /* Серый фон */
+                border-radius: 4px;
+                width: 100% !important;
+                max-width: 100% !important;
+                box-sizing: border-box !important;
+            }
+            
+            .form-input::placeholder {
+                color: transparent !important; /* Делаем placeholder невидимым */
+            }
+            
+            .attendance-section {
+                margin: 18pt 0;
+                width: 100%;
+            }
+            
+            .attendance-title {
+                font-size: 14pt;
+                margin-bottom: 10pt;
+                width: 100%;
+            }
+            
+            .radio-label {
+                font-size: 13pt;
+                line-height: 1.35;
+                width: calc(100% - 25px);
+            }
+            
+            .radio-option {
+                margin-bottom: 10pt;
+                width: 100%;
+            }
+            
+            .radio-option input[type="radio"] {
+                width: 16pt;
+                height: 16pt;
+                margin-top: 4pt;
+                flex-shrink: 0;
+            }
+            
+            .submit-btn {
+                padding: 12pt 0;
+                font-size: 14pt;
+                border-width: 1.2pt;
+                margin-top: 20pt;
+                margin-bottom: 10pt;
+                border-radius: 28px;
+                width: 100% !important;
+                max-width: 100% !important;
+                box-sizing: border-box !important;
+            }
+            
+            /* Вторая страница украшение */
+            .second-page-decoration {
+                top: 30px;
+                left: -25px;
+            }
+            
+            .decoration-left {
+                max-height: 65pt !important;
+                transform: scale(0.7);
+            }
+            
+            /* Последствия неявки украшение */
+            .consequences-decoration {
+                max-height: 55pt;
+                top: -30px;
+                left: -42px;
+            }
+            
+            /* Модальное окно */
+            .modal {
+                padding: 15px;
+            }
+            
+            .modal-content {
+                padding: 25px;
+                max-width: 92%;
+                transform: scale(1.02);
+            }
+            
+            .modal-body p {
+                font-size: 14pt;
+                margin-bottom: 12pt;
+            }
+            
+            .case-number {
+                font-size: 15pt;
+                margin: 12pt 0;
+            }
+            
+            .modal-stamp {
+                width: 75pt;
+                height: 75pt;
+                margin: 18pt auto;
+            }
+            
+            .stamp-text {
+                font-size: 12pt;
+            }
+            
+            .stamp-date {
+                font-size: 11pt;
+            }
+            
+            /* Сдвигаем radio-группу влево */
+            .radio-group {
+                margin-left: 0 !important; /* Сдвигаем влево */
+                width: 100%;
+            }
+            
+            /* Убираем лишние отступы */
+            .document-content {
+                margin-top: -8px;
+            }
+            
+            .bottom-section {
+                padding: 0 12px;
+            }
+            
+            /* ФИКС ДЛЯ ПРЕДОТВРАЩЕНИЯ ГОРИЗОНТАЛЬНОГО СКРОЛЛА */
+            html, body {
+                overflow-x: hidden !important;
+                width: 100% !important;
+                max-width: 100% !important;
+            }
+            
+            #officialForm {
+                width: 100%;
+                max-width: 100%;
+                overflow: hidden;
+            }
+        }
+        
+        /* Для очень маленьких экранов */
+        @media (max-width: 480px) {
+            .document-a4 {
+                padding: 14px 10px 14px 18px !important;
+                margin: 8px auto !important;
+                transform: scale(1.03);
+                box-shadow: 0 3px 10px rgba(0,0,0,0.12);
+                width: 100% !important;
+                max-width: 100% !important;
+                overflow-x: hidden !important;
+            }
+            
+            .corner-left {
+                max-height: 45pt !important;
+                top: -5px;
+                left: -8px;
+            }
+            
+            .corner-right {
+                max-height: 50pt !important;
+                top: -4px;
+                right: -6px;
+            }
+            
+            .seal-stamp {
+                height: 80pt !important;
+                transform: translateY(0pt) !important;
+            }
+            
+            .year-bottom {
+                bottom: 45px; /* Увеличено с 35px */
+                font-size: 13pt;
+            }
+            
+            .first-page {
+                padding-bottom: 50px; /* Увеличено */
+            }
+            
+            body {
+                font-size: 13pt;
+            }
+            
+            .document-title h1,
+            .document-title h2 {
+                font-size: 16pt;
+                margin: 18pt 0 14pt 0;
+            }
+            
+            .paragraph {
+                font-size: 13pt;
+                text-indent: 18px;
+                margin-bottom: 9pt;
+            }
+            
+            .first-paragraph {
+                margin-bottom: 25pt !important;
+            }
+            
+            .attachment-item {
+                font-size: 13pt;
+                text-indent: 18px;
+                padding-left: 0;
+            }
+            
+            .attachment-item.numbered {
+                text-indent: 0;
+            }
+            
+            .form-input {
+                font-size: 13pt !important;
+                padding: 9px 10px !important;
+                border: none !important;
+                background-color: #f8f8f8 !important;
+            }
+            
+            .submit-btn {
+                font-size: 13pt !important;
+                padding: 11pt 0 !important;
+            }
+            
+            .decoration-left {
+                max-height: 45pt !important;
+                transform: scale(0.6);
+            }
+            
+            .radio-group {
+                margin-left: 0 !important;
+                width: 100%;
+            }
+        }
+        
+        /* Для средних экранов (планшеты) */
+        @media (min-width: 769px) and (max-width: 1024px) {
+            .document-a4 {
+                transform: scale(1.01);
+                max-width: 96%;
+                padding: 25px 18px 25px 30px;
+            }
+            
+            .first-page {
+                padding-bottom: 80px; /* Увеличено */
+            }
+            
+            .year-bottom {
+                bottom: 70px; /* Увеличено */
+            }
+            
+            body {
+                font-size: 15pt;
+            }
+            
+            .paragraph {
+                font-size: 15pt;
+            }
+            
+            .first-paragraph {
+                margin-bottom: 40pt !important;
+            }
+            
+            .document-title h1,
+            .document-title h2 {
+                font-size: 18pt;
+            }
+            
+            /* Стили для полей ввода на планшетах */
+            .form-input {
+                border: none !important;
+                background-color: #f8f8f8 !important;
+            }
+            
+            .form-input::placeholder {
+                color: transparent !important;
+            }
+            
+            .radio-group {
+                margin-left: 0 !important;
+            }
+        }
+        
+        /* Убираем горизонтальную прокрутку */
+        @media (max-width: 768px) {
+            html, body {
+                overflow-x: hidden !important;
+                width: 100% !important;
+                height: 100%;
+            }
+            
+            body {
+                display: block;
+                padding: 0;
+                margin: 0;
+                min-height: 100vh;
+            }
+            
+            .document-a4 {
+                margin: 0 auto !important;
+                min-height: 100vh;
+                overflow-x: hidden !important;
+            }
+        }
+        
+        /* Плавная прокрутка */
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body>
+    <!-- Контейнер документа А4 -->
+    <main class="document-a4">
+        <!-- Первая страница - Извещение -->
+        <section class="a4-page first-page">
+            <!-- Объекты в верхних углах -->
+            <div class="corner-objects">
+                <img src="1.png" alt="Украшение слева" class="corner-left">
+                <img src="4.jpg" alt="Украшение справа" class="corner-right">
+            </div>
+            
+            <!-- Основной текст -->
+            <div class="document-content">
+                <div class="document-title">
+                    <h1>ИЗВЕЩЕНИЕ</h1>
+                </div>
+                
+                <div class="document-body">
+                    <p class="paragraph first-paragraph">
+                        <span class="no-break">Семья Логачевых</span> сообщает о том, что свадебное мероприятие по делу заключения брачного союза № <span class="no-break">21-08/2016</span> в отношении влюблённых <span class="no-break">Логачева Данила Алексеевича</span> и <span class="no-break">Мелюхановой Валерии Николаевны</span> назначено к проведению на <span class="no-break">21 августа 2026 г.</span>
+                    </p>
+                </div>
+            </div>
+            
+            <!-- Дата внизу первой страницы -->
+            <div class="year-bottom">2026 г.</div>
+            
+            <!-- Печать -->
+            <div class="bottom-section" style="position: relative; z-index: 10;">
+                <img src="3.png" alt="Печать" class="seal-stamp">
+            </div>
+        </section>
+
+        <!-- Вторая страница - Повестка -->
+        <section class="a4-page second-page">
+            <!-- Объект в левом углу -->
+            <div class="second-page-decoration">
+                <img src="3.jpg" alt="Украшение" class="decoration-left">
+            </div>
+            
+            <!-- Линия перед повесткой -->
+            <div class="second-page-title-line"></div>
+            
+            <!-- Заголовок -->
+            <div class="document-title">
+                <h2>ПОВЕСТКА</h2>
+            </div>
+            
+            <!-- Основной текст -->
+            <div class="document-body">
+                <p class="paragraph">
+                    <span class="no-break">Семья Логачевых</span> вызывает Вас в качестве гостя к <span class="no-break">12 часам 21.08.2026 г.</span> по адресу: <span class="no-break"> г. Старый Оскол, м-он Надежда, 1</span>
+                </p>
+                
+                <h3 class="attachment-title">Приложение</h3>
+                
+                <!-- Нумерованные и обычные пункты приложения -->
+                <div class="attachment-section">
+                    <p class="attachment-item numbered">
+                        <span class="map-link-full" id="mapLinkFull">1.  Ссылка на карту места проведения</span>
+                    </p>
+                    
+                    <p class="attachment-item">
+                        В соответствии с действующим законодательством нормы дресс-кода отсутствуют, но предусмотрены меры, обеспечивающие отличное настроение.
+                    </p>
+                    
+                    <p class="attachment-item">
+                        Гостям разрешается плакать от счастья, участвовать в конкурсах, танцевать, шутить и даже кричать «Горько!».
+                    </p>
+                    
+                    <p class="attachment-item">
+                        Уважаемые гости, нам неважно, какой подарок вы выберете, главное, чтобы он поместился в конверт.
+                    </p>
+                    
+                    <p class="attachment-item">
+                        Пожалуйста, учитывайте, что наше торжество ориентировано исключительно на взрослых, поэтому просим оставить детей дома. Надеемся на понимание!
+                    </p>
+                </div>
+                
+                <!-- Расписание мероприятия - ОБЫЧНЫЙ ШРИФТ -->
+                <div class="schedule-section">
+                    <p class="paragraph">
+                        <strong>Расписание мероприятия:</strong>
+                    </p>
+                    
+                    <div class="schedule">
+                        <div class="schedule-item">
+                            <span class="schedule-time">12:00</span>
+                            <span class="schedule-text">— Сбор гостей;</span>
+                        </div>
+                        <div class="schedule-item">
+                            <span class="schedule-time">12:45</span>
+                            <span class="schedule-text">— Регистрация брака;</span>
+                        </div>
+                        <div class="schedule-item">
+                            <span class="schedule-time">17:00</span>
+                            <span class="schedule-text">— Начало банкета;</span>
+                        </div>
+                        <div class="schedule-item">
+                            <span class="schedule-time">23:00</span>
+                            <span class="schedule-text">— Завершение.</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Расписка -->
+                <div class="receipt-section">
+                    <h3 class="receipt-title">РАСПИСКА</h3>
+                    
+                    <form id="officialForm">
+                        <div class="form-group">
+                            <label for="fullName" class="form-label">ФИО:</label>
+                            <input type="text" id="fullName" class="form-input" placeholder="Иванов Иван Иванович" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="phone" class="form-label">Номер телефона:</label>
+                            <input type="tel" id="phone" class="form-input" placeholder="+7 (___) ___-__-__" required>
+                        </div>
+                        
+                        <div class="attendance-section">
+                            <p class="attendance-title">Отметка о явке:</p>
+                            <div class="radio-group">
+                                <div class="radio-option">
+                                    <input type="radio" id="attending" name="attendance" value="yes" required>
+                                    <label for="attending" class="radio-label">
+                                        Обязуюсь своевременно явиться к назначенной дате и времени
+                                    </label>
+                                </div>
+                                <div class="radio-option">
+                                    <input type="radio" id="notAttending" name="attendance" value="no">
+                                    <label for="notAttending" class="radio-label">
+                                        Не смогу явиться
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <button type="submit" class="submit-btn">ПОДПИСЬ</button>
+                    </form>
+                </div>
+                
+                <!-- Последствия неявки -->
+                <div class="consequences-footer">
+                    <img src="2.png" alt="Украшение" class="consequences-decoration">
+                    <h3 class="consequences-title">ПОСЛЕДСТВИЯ НЕЯВКИ</h3>
+                    <p class="paragraph">
+                        Материалы дела в отношении неявившегося лица будут переданы в семейно-дружеский надзорный орган для проведения проверки.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Модальное окно подтверждения -->
+        <div id="confirmationModal" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3>РАСПИСКА ПРИНЯТА</h3>
+                    <span class="close-modal">&times;</span>
+                </div>
+                <div class="modal-body">
+                    <p>Ваша расписка зарегистрирована в деле</p>
+                    <p class="case-number" id="caseNumber"></p>
+                    <p>Ожидаем вашей явки 21.08.2026</p>
+                    <div class="modal-stamp">
+                        <div class="stamp-text">ПРИНЯТО</div>
+                        <div class="stamp-date">21.08.2026</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

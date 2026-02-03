@@ -1,0 +1,933 @@
+/* Стили для документа по ГОСТ */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: transparent;
+    text-rendering: optimizeLegibility;
+}
+
+body {
+    font-family: 'Times New Roman', Times, serif;
+    background-color: #ffffff;
+    color: #000000;
+    font-size: 14pt;
+    line-height: 1.5;
+    max-width: 100vw;
+    overflow-x: hidden;
+    padding: 0;
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+/* Контейнер документа А4 */
+.document-a4 {
+    width: 100%;
+    max-width: 210mm;
+    min-height: 297mm;
+    background: #ffffff;
+    position: relative;
+    margin: 0 auto;
+    padding: 20mm 15mm 20mm 30mm; /* Поля: верх 20мм, право 15мм, низ 20мм, лево 30мм */
+    box-sizing: border-box;
+}
+
+/* Страницы документа */
+.a4-page {
+    min-height: 257mm;
+    position: relative;
+    page-break-after: always;
+}
+
+.first-page {
+    padding-bottom: 80mm; /* Увеличено для большего расстояния до года */
+    padding-top: 80mm !important; /* ОПУЩЕНО НИЖЕ */
+}
+
+.second-page {
+    padding-top: 5mm;
+    position: relative;
+}
+
+/* Объекты в углах первой страницы */
+.corner-objects {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100pt;
+    pointer-events: none;
+}
+
+.corner-left {
+    position: absolute;
+    top: -12mm;
+    left: -18mm;
+    max-height: 88pt !important;
+    width: auto;
+    opacity: 0.9;
+    z-index: 1;
+    transform: scale(1.1);
+}
+
+.corner-right {
+    position: absolute;
+    top: -12mm;
+    right: -6mm;
+    max-height: 70pt !important;
+    width: auto;
+    opacity: 0.9;
+    z-index: 1;
+    transform: scale(0.9);
+}
+
+/* Основной контент первой страницы */
+.document-content {
+    text-align: justify;
+    hyphens: auto;
+    -webkit-hyphens: auto;
+    -moz-hyphens: auto;
+    -ms-hyphens: auto;
+    position: relative;
+    z-index: 2;
+}
+
+/* ЗАГОЛОВКИ */
+.document-title {
+    text-align: center;
+    margin: 100pt 0 80pt 0 !important;
+    clear: both;
+}
+
+.document-title h1,
+.document-title h2 {
+    font-size: 22pt !important;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1pt;
+    margin: 0;
+}
+
+/* Текст документа */
+.paragraph {
+    margin-bottom: 14.5pt;
+    text-indent: 1.5cm;
+    line-height: 1.5;
+    text-align: justify;
+    word-spacing: normal;
+}
+
+/* Первый абзац с увеличенным отступом снизу */
+.first-paragraph {
+    margin-bottom: 50pt !important; /* Увеличен отступ до года */
+}
+
+/* Пункты приложения */
+.attachment-section {
+    counter-reset: none;
+}
+
+.attachment-item {
+    margin-bottom: 14.5pt;
+    padding-left: 0;
+    position: relative;
+    text-align: justify;
+    text-indent: 1.5cm; /* Стандартный отступ как в обычном параграфе */
+}
+
+/* Ссылка на карту - вся строка как ссылка */
+.map-link-full {
+    color: #000000;
+    text-decoration: underline;
+    text-decoration-style: dotted;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.map-link-full:hover {
+    text-decoration-style: solid;
+}
+
+/* Неразрывные пробелы для дат и чисел */
+.no-break {
+    white-space: nowrap;
+}
+
+/* Нижняя часть первой страницы (печать и год) */
+.bottom-section {
+    position: absolute;
+    bottom: 15mm;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding: 0 15mm;
+    z-index: 3;
+}
+
+/* Год внизу первой страницы - больше отступ */
+.year-bottom {
+    position: absolute;
+    bottom: 30mm; /* Увеличен отступ */
+    left: 0;
+    right: 0;
+    text-align: center;
+    font-size: 14pt;
+    font-weight: normal;
+    color: #000000;
+    opacity: 1;
+    z-index: 5;
+}
+
+.year {
+    font-size: 48pt;
+    font-weight: 700;
+    color: #000000;
+    opacity: 0.3;
+    align-self: flex-start;
+    margin-top: -20pt;
+}
+
+.seal-stamp {
+    height: 120pt;
+    width: auto;
+    opacity: 0.9;
+    mix-blend-mode: multiply;
+    transform: translateY(0pt) !important;
+    z-index: 4;
+    position: relative;
+    left: 200px;
+}
+
+/* Объект на второй странице */
+.second-page-decoration {
+    position: absolute;
+    top: 20mm;
+    left: -25mm;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.decoration-left {
+    max-height: 105pt !important;
+    width: auto;
+    opacity: 0.8;
+    transform: scale(1.05);
+}
+
+/* Адресат на второй странице */
+.addressee {
+    text-align: right;
+    font-size: 14pt;
+    line-height: 1.5;
+    margin-bottom: 40pt;
+    margin-right: 0;
+    float: right;
+    clear: both;
+    position: relative;
+    z-index: 2;
+}
+
+/* ЗАГОЛОВКИ ВНУТРИ ДОКУМЕНТА */
+.attachment-title {
+    font-size: 14pt;
+    font-weight: 700;
+    text-align: center;
+    margin: 21pt 0 14.5pt 0;
+    text-transform: uppercase;
+}
+
+/* Расписание мероприятия - ОБЫЧНЫЙ ШРИФТ (как обычный параграф) */
+.schedule-section .paragraph {
+    margin-bottom: 10pt;
+}
+
+.schedule-section .paragraph strong {
+    font-weight: 700;
+}
+
+/* РАСПИСКА и ПОСЛЕДСТВИЯ НЕЯВКИ */
+.receipt-title,
+.consequences-title {
+    font-size: 22pt !important;
+    font-weight: 700;
+    text-align: center;
+    margin: 80pt 0 60pt 0 !important;
+    text-transform: uppercase;
+    letter-spacing: 1pt;
+}
+
+/* Расписание */
+.schedule {
+    margin: 21pt 0;
+    padding-left: 1.5cm;
+}
+
+.schedule-item {
+    margin-bottom: 10.875pt;
+    display: flex;
+    align-items: baseline;
+}
+
+.schedule-time {
+    font-weight: 700;
+    width: 45pt;
+    flex-shrink: 0;
+}
+
+.schedule-text {
+    flex: 1;
+}
+
+/* Расписка */
+.receipt-section {
+    margin: 30pt 0;
+    padding: 0;
+    background: transparent;
+}
+
+/* ФИКСИРОВАННЫЕ ПОЛЯ ВВОДА БЕЗ РАМКИ */
+.form-group {
+    margin-bottom: 21pt;
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+}
+
+.form-label {
+    display: block;
+    font-weight: 700;
+    margin-bottom: 7.25pt;
+    font-size: 14pt;
+    width: 100%;
+}
+
+.form-input {
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    padding: 7pt 10pt;
+    border: none !important; /* Убираем черную рамку */
+    font-family: 'Times New Roman', serif;
+    font-size: 14pt;
+    background: #f8f8f8 !important; /* Серый фон */
+    border-radius: 4px;
+    -webkit-appearance: none;
+    appearance: none;
+    display: block;
+}
+
+.form-input:focus {
+    outline: none;
+    background: #f0f0f0 !important; /* Темнее при фокусе */
+}
+
+/* Делаем placeholder невидимым */
+.form-input::placeholder {
+    color: transparent !important;
+}
+
+/* Варианты ответа (сдвинуты влево) */
+.attendance-section {
+    margin: 25pt 0;
+    width: 100%;
+}
+
+.attendance-title {
+    font-weight: 700;
+    margin-bottom: 14.5pt;
+    font-size: 14pt;
+    width: 100%;
+}
+
+.radio-group {
+    margin-left: 0 !important; /* Сдвигаем влево, чтобы начинались вместе с полями */
+    width: 100%;
+}
+
+.radio-option {
+    margin-bottom: 14.5pt;
+    display: flex;
+    align-items: flex-start;
+    width: 100%;
+}
+
+.radio-option input[type="radio"] {
+    margin-right: 10pt;
+    margin-top: 3pt;
+    width: 14pt;
+    height: 14pt;
+    accent-color: #000000;
+    flex-shrink: 0;
+}
+
+.radio-label {
+    flex: 1;
+    font-size: 14pt;
+    line-height: 1.5;
+    width: calc(100% - 24pt);
+}
+
+/* Кнопка "Подписать расписку" */
+.submit-btn {
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    padding: 10pt 0;
+    background: transparent;
+    color: #000000;
+    border: 1pt solid #000000;
+    border-radius: 25pt;
+    font-family: 'Times New Roman', serif;
+    font-size: 14pt;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5pt;
+    cursor: pointer;
+    margin-top: 21pt;
+    transition: all 0.3s;
+    display: block;
+    overflow: hidden;
+}
+
+.submit-btn:hover {
+    background: rgba(0, 0, 0, 0.05);
+}
+
+.submit-btn:active {
+    background: rgba(0, 0, 0, 0.1);
+}
+
+/* Последствия неявки (футер) */
+.consequences-footer {
+    margin-top: 40pt;
+    padding-top: 0;
+    position: relative;
+    border-top: none !important;
+}
+
+.consequences-decoration {
+    position: absolute;
+    top: -25pt;
+    left: -30mm;
+    max-height: 77pt !important;
+    width: auto;
+    opacity: 0.7;
+    z-index: 1;
+    transform: scale(0.97);
+}
+
+.consequences-title {
+    text-align: left;
+    margin: 15pt 0 10pt 0;
+    font-size: 14pt;
+    position: relative;
+    z-index: 2;
+}
+
+/* Модальное окно */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.9);
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+    padding: 10mm;
+    font-family: 'Times New Roman', serif;
+}
+
+.modal-content {
+    background: #ffffff;
+    padding: 10mm;
+    max-width: 160mm;
+    width: 100%;
+    border: 1pt solid #000000;
+    position: relative;
+    font-size: 14pt;
+    line-height: 1.5;
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 14.5pt;
+    padding-bottom: 7.25pt;
+    border-bottom: 1pt solid #000000;
+}
+
+.modal-header h3 {
+    font-size: 14pt;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin: 0;
+}
+
+.close-modal {
+    font-size: 24pt;
+    cursor: pointer;
+    color: #000000;
+    line-height: 1;
+    font-weight: 400;
+}
+
+.modal-body {
+    text-align: center;
+}
+
+.modal-body p {
+    margin-bottom: 14.5pt;
+    font-size: 14pt;
+}
+
+.case-number {
+    font-weight: 700;
+    font-size: 16pt;
+    letter-spacing: 1pt;
+    margin: 14.5pt 0;
+    font-family: 'Courier New', monospace;
+}
+
+.modal-stamp {
+    width: 80pt;
+    height: 80pt;
+    border: 2pt solid #000000;
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 21pt auto;
+    transform: rotate(-5deg);
+}
+
+.stamp-text {
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 12pt;
+    letter-spacing: 1pt;
+}
+
+.stamp-date {
+    font-size: 10pt;
+    margin-top: 3pt;
+}
+
+/* Адаптивность для мобильных */
+@media (max-width: 210mm) {
+    .document-a4 {
+        padding: 5vw 5vw 5vw 10vw;
+    }
+    
+    .first-page {
+        padding-bottom: 60mm; /* Увеличено для мобильных */
+    }
+    
+    .year-bottom {
+        bottom: 20mm; /* Адаптивный отступ */
+    }
+    
+    .corner-left {
+        left: -8vw;
+        top: -5vw;
+        max-height: 66pt !important;
+        transform: scale(1.1);
+    }
+    
+    .corner-right {
+        right: -3vw;
+        top: -5vw;
+        max-height: 45pt !important;
+        transform: scale(0.9);
+    }
+    
+    .second-page-decoration {
+        left: -15vw;
+        top: 5vw;
+    }
+    
+    .decoration-left {
+        max-height: 73pt !important;
+        transform: scale(1.05);
+    }
+    
+    .seal-stamp {
+        height: 90pt;
+        transform: translateY(-30pt);
+    }
+    
+    .consequences-decoration {
+        left: -12vw;
+        max-height: 58pt !important;
+        transform: scale(0.97);
+    }
+    
+    .paragraph {
+        text-indent: 7vw;
+    }
+    
+    .attachment-item {
+        text-indent: 7vw;
+    }
+    
+    .radio-group {
+        margin-left: 0 !important;
+    }
+}
+
+@media (max-width: 768px) {
+    body {
+        font-size: 13pt;
+        background: #f5f5f5;
+    }
+    
+    .document-title h1,
+    .document-title h2 {
+        font-size: 20pt !important;
+    }
+    
+    .year {
+        font-size: 40pt;
+    }
+    
+    .corner-left {
+        max-height: 60pt !important;
+        transform: scale(1.1);
+    }
+    
+    .corner-right {
+        max-height: 55pt !important;
+        transform: scale(0.9);
+    }
+    
+    .seal-stamp {
+        height: 80pt;
+    }
+    
+    /* КОНТЕЙНЕР ДОКУМЕНТА ДЛЯ МОБИЛЬНЫХ */
+    .document-a4 {
+        width: 100% !important;
+        max-width: 100% !important;
+        padding: 15px 10px 15px 20px !important;
+        margin: 10px 5px !important;
+        transform: scale(1.02);
+        border: 1px solid rgba(0,0,0,0.15);
+        box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        position: relative;
+        overflow-x: hidden !important;
+    }
+    
+    /* ПЕРВАЯ СТРАНИЦА - ИЗВЕЩЕНИЕ ОПУЩЕНО */
+    .first-page {
+        padding-top: 80px !important;
+        padding-bottom: 60px; /* Увеличено */
+    }
+    
+    /* Год для мобильных */
+    .year-bottom {
+        bottom: 50px;
+        font-size: 14pt;
+    }
+    
+    /* Первый абзац с увеличенным отступом */
+    .first-paragraph {
+        margin-bottom: 30pt !important;
+    }
+    
+    /* ЗАГОЛОВКИ ДЛЯ МОБИЛЬНЫХ */
+    .document-title {
+        margin: 60pt 0 50pt 0 !important;
+    }
+    
+    .receipt-title,
+    .consequences-title {
+        font-size: 20pt !important;
+        margin: 60pt 0 50pt 0 !important;
+        letter-spacing: 0.8pt;
+    }
+    
+    /* ПУНКТЫ ПРИЛОЖЕНИЯ ДЛЯ МОБИЛЬНЫХ */
+    .attachment-item {
+        padding-left: 0;
+        text-indent: 6vw;
+    }
+    
+    .map-link-full {
+        font-size: 13pt;
+    }
+    
+    /* ФИКС ДЛЯ ПОЛЕЙ ВВОДА НА МОБИЛЬНЫХ */
+    .form-input {
+        width: 100% !important;
+        max-width: 100% !important;
+        padding: 8px 10px !important;
+        font-size: 13pt !important;
+        box-sizing: border-box !important;
+        border: none !important;
+        background-color: #f8f8f8 !important;
+    }
+    
+    .form-input::placeholder {
+        color: transparent !important;
+    }
+    
+    .form-group {
+        margin-bottom: 15pt;
+        width: 100%;
+    }
+    
+    .radio-group {
+        margin-left: 0 !important;
+        width: 100%;
+    }
+    
+    .radio-label {
+        font-size: 12pt;
+        line-height: 1.4;
+        width: calc(100% - 20pt);
+    }
+    
+    .submit-btn {
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: 20pt auto 10pt auto !important;
+        padding: 12pt 0 !important;
+        font-size: 13pt !important;
+    }
+    
+    /* ОБЪЕКТЫ ДЛЯ МОБИЛЬНЫХ */
+    .decoration-left {
+        max-height: 68pt !important;
+        transform: scale(0.75);
+    }
+    
+    .consequences-decoration {
+        max-height: 53pt !important;
+        transform: scale(0.97);
+    }
+    
+    /* ТОЛЬКО ТРИ ЛИНИИ */
+    .first-page::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: -10px !important;
+        right: -10px !important;
+        width: 100vw !important;
+        height: 2px;
+        background: linear-gradient(90deg, 
+            transparent 5%, 
+            rgba(0,0,0,0.3) 20%, 
+            rgba(0,0,0,0.3) 80%, 
+            transparent 95%);
+        z-index: 2;
+    }
+    
+    .second-page-title-line {
+        content: '';
+        display: block;
+        width: 100vw !important;
+        height: 2px;
+        background: linear-gradient(90deg, 
+            transparent 5%, 
+            rgba(0,0,0,0.3) 20%, 
+            rgba(0,0,0,0.3) 80%, 
+            transparent 95%);
+        margin: 10pt -10px 15pt -10px !important;
+        position: relative;
+        left: -10px;
+        right: -10px;
+    }
+    
+    .receipt-section::after {
+        content: '';
+        display: block;
+        width: 100vw !important;
+        height: 2px;
+        background: linear-gradient(90deg, 
+            transparent 5%, 
+            rgba(0,0,0,0.3) 20%, 
+            rgba(0,0,0,0.3) 80%, 
+            transparent 95%);
+        margin: 30pt -10px 0 -10px !important;
+        position: relative;
+        left: -10px;
+        right: -10px;
+    }
+    
+    /* Убираем все остальные линии */
+    .schedule::after,
+    .receipt-section::before,
+    .consequences-footer::before {
+        display: none !important;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        font-size: 12pt;
+    }
+    
+    .document-a4 {
+        padding: 10px 8px 10px 15px !important;
+        margin: 5px 3px !important;
+        transform: scale(1.03);
+        overflow-x: hidden !important;
+    }
+    
+    .first-page {
+        padding-top: 60px !important;
+        padding-bottom: 50px; /* Увеличено */
+    }
+    
+    .year-bottom {
+        bottom: 45px; /* Увеличено */
+        font-size: 13pt;
+    }
+    
+    .paragraph {
+        text-indent: 6vw;
+        font-size: 12pt;
+    }
+    
+    .first-paragraph {
+        margin-bottom: 25pt !important;
+    }
+    
+    .attachment-item {
+        text-indent: 6vw;
+        font-size: 12pt;
+    }
+    
+    .document-title h1,
+    .document-title h2 {
+        font-size: 18pt !important;
+    }
+    
+    .receipt-title,
+    .consequences-title {
+        font-size: 18pt !important;
+        margin: 50pt 0 40pt 0 !important;
+    }
+    
+    .year {
+        font-size: 32pt;
+    }
+    
+    .map-link-full {
+        font-size: 12pt;
+    }
+    
+    .form-input,
+    .radio-label,
+    .submit-btn {
+        font-size: 12pt !important;
+    }
+    
+    .form-input {
+        border: none !important;
+        background-color: #f8f8f8 !important;
+    }
+    
+    .corner-left {
+        max-height: 49pt !important;
+        transform: scale(1.1);
+    }
+    
+    .corner-right {
+        max-height: 46pt !important;
+        transform: scale(0.9);
+    }
+    
+    .seal-stamp {
+        height: 70pt;
+    }
+    
+    .decoration-left {
+        max-height: 47pt !important;
+        transform: scale(0.65);
+    }
+    
+    .consequences-decoration {
+        max-height: 48pt !important;
+        transform: scale(0.97);
+    }
+    
+    .radio-group {
+        margin-left: 0 !important;
+        width: 100%;
+    }
+    
+    /* Корректировка линий для маленьких экранов */
+    .first-page::after,
+    .second-page-title-line,
+    .receipt-section::after {
+        left: -8px !important;
+        right: -8px !important;
+        height: 1.5px;
+        margin-left: -8px !important;
+        margin-right: -8px !important;
+    }
+    
+    .receipt-section::after {
+        margin-top: 25pt -8px 0 -8px !important;
+    }
+}
+
+/* Блокировка горизонтальной прокрутки */
+html, body {
+    overflow-x: hidden !important;
+    position: relative;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+/* ФИКС ДЛЯ ПРЕДОТВРАЩЕНИЯ СКРОЛЛА ПРИ НАЖАТИИ КНОПКИ */
+#officialForm {
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+}
+
+/* Отключение масштабирования на iOS */
+@supports (-webkit-touch-callout: none) {
+    .document-a4 {
+        min-height: -webkit-fill-available;
+    }
+}
+
+/* Стили для placeholder */
+::placeholder {
+    color: transparent !important; /* Делаем placeholder невидимым */
+    font-style: italic;
+    opacity: 1;
+    font-family: 'Times New Roman', serif;
+}
+
+:-ms-input-placeholder {
+    color: transparent !important;
+    font-style: italic;
+}
+
+::-ms-input-placeholder {
+    color: transparent !important;
+    font-style: italic;
+}
+
+/* Правила переноса */
+h1, h2, h3, .no-break {
+    word-break: keep-all;
+    overflow-wrap: normal;
+}
